@@ -22,13 +22,19 @@ public class Library {
         }
     }
 
-    public String toString(){
-        StringBuilder sb = new StringBuilder(name + "\n\n");
-        for(int i = 0; i < publications.size(); i++)
-        {
-            sb.append(i+") " + publications.get(i).toString()+ "\n");
+    public String display() {
+        StringBuilder displayString = new StringBuilder();
+        int i = 0;
+        for (Publication item : publications) {
+            displayString.append(i).append(") ").append(item).append("\n");
+            i++;
         }
-         return sb.toString();
+        return displayString.toString();
+    }
+
+
+    public String toString(){
+         return name + "\n\n" + display()  + "\n" ;
     }
     
 }
