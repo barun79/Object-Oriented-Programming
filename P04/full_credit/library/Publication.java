@@ -4,9 +4,11 @@
 // under the terms of the Gnu General Public License version 3 or 
 // (at your option) any later version, see <https://www.gnu.org/licenses/>.
 
+package library;
+
 import java.time.LocalDate;
 
-class Publication {
+ public class Publication {
     public static final int LOAN_PERIOD = 14; // days
     public Publication(String title, String author, int copyright) {
         if(copyright < 1900 || copyright > LocalDate.now().getYear())
@@ -23,11 +25,25 @@ class Publication {
         loanedTo = null;
         dueDate = null;
     }
+
+    protected String toStringBuilder(String pre, String mid) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(pre + " \"" + title + "\" by " + author + ", copyright " + copyright);
+
+        if (!mid.isEmpty()) {
+            sb.append(" runtime " + mid );
+        }
+
+        if (loanedTo != null) {
+            sb.append("\n  : loaned to " + loanedTo + " until " + dueDate);
+        }
+
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
-        return "\"" + title + "\" by " + author + ", copyright " + copyright
-            + ((loanedTo != null) ? "\n  : loaned to " + loanedTo + " until " + dueDate
-                                  : "");
+        return toStringBuilder("Book","");
     }
     private String title;
     private String author;

@@ -4,6 +4,7 @@
 // under the terms of the Gnu General Public License version 3 or 
 // (at your option) any later version, see <https://www.gnu.org/licenses/>.
 
+package library;
 import java.util.ArrayList;
 
 public class Library {
