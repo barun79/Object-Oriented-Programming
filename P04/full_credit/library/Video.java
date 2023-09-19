@@ -1,3 +1,9 @@
+// Copyright 2023 Barun Singh <https://github.com/barun79/>
+//
+// This file is part of the Library Management System and is licensed
+// under the terms of the Gnu General Public License version 3 or 
+// (at your option) any later version, see <https://www.gnu.org/licenses/>.
+
 package library;
 
 import java.time.Duration;

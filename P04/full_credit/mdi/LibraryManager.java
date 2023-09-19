@@ -1,4 +1,4 @@
-// Copyright 2023 George F. Rice <https://github.com/prof-rice>
+// Copyright 2023 Barun Singh <https://github.com/barun79/>
 //
 // This file is part of the Library Management System and is licensed
 // under the terms of the Gnu General Public License version 3 or 
