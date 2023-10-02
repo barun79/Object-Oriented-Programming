@@ -70,7 +70,7 @@ public class LibraryManager {
         System.out.println("===========");
         System.out.println("Main Menu");
         System.out.println("===========");
-        System.out.println("\n The Library at Alexandria (Texas) \n");
+        System.out.println(library.getname());
         System.out.println("0) Exit");
         System.out.println("1) List");
         System.out.println("2) Add");
@@ -78,12 +78,15 @@ public class LibraryManager {
         System.out.println("4) Check in\n\n");
     }
 
-    
-    
-    
     public static void main(String[] args) {
         Library library = new Library("The Library at Alexandria (Texas)");
         LibraryManager manager = new LibraryManager(library);
+        library.addPublication(new Publication("The Cat in the Hat", "Dr. Suess", 1957));
+        library.addPublication(new Publication("The Firm", "John Grisham", 1992));
+        library.addPublication(new Publication("Foundation", "Isaac Asimov", 1951));
+        library.addPublication(new Video("Citizen Kane", "Orson Welles", 1941, 119));
+        library.addPublication(new Video("Star Wars", "George Lucas", 1977, 121));
+        library.addPublication(new Video("七人の侍 (Seven Samurai)", "Akira Kurosawa", 1954, 207));
 
         manager.menu();
         Scanner input = new Scanner(System.in);
@@ -108,6 +111,8 @@ public class LibraryManager {
                         case 2:
                         manager.addVideo();
                         break;
+                        default:
+                        System.out.println("Invalid input");
                     } 
                 break;
                 case 3:

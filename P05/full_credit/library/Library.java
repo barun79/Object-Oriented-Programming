@@ -51,6 +51,10 @@ import java.util.ArrayList;
     public void checkIn(int publicationIndex){
         publications.get(publicationIndex).checkIn();
     }
+
+    public String getname(){
+        return name;
+    }
     /**
      * Lists all publications in this library instance.
      *
