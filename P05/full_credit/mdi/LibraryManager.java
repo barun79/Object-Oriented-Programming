@@ -49,11 +49,33 @@ public class LibraryManager {
     }
     
     public void checkOutPublication(){
-
+        Scanner input = new Scanner(System.in);
+        System.out.print("Which publication to checkout? ");
+        int selection = input.nextInt();
+        input.nextLine();
+        System.out.print("Who are you? ");
+        String patron = input.nextLine(); 
+        library.checkOut(selection, patron);
     }
 
     public void checkInPublication(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter index you wanted to checkout: ");
+        int publicationIndex = input.nextInt();
+        input.nextLine();
+        library.checkIn(publicationIndex);
+    }
 
+    public void menu(){
+        System.out.println("===========");
+        System.out.println("Main Menu");
+        System.out.println("===========");
+        System.out.println("\n The Library at Alexandria (Texas) \n");
+        System.out.println("0) Exit");
+        System.out.println("1) List");
+        System.out.println("2) Add");
+        System.out.println("3) Check out");
+        System.out.println("4) Check in\n\n");
     }
 
     
@@ -62,16 +84,8 @@ public class LibraryManager {
     public static void main(String[] args) {
         Library library = new Library("The Library at Alexandria (Texas)");
         LibraryManager manager = new LibraryManager(library);
-        
-        System.out.println("===========");
-        System.out.println("Main Menu");
-        System.out.println("===========");
-        System.out.println("0) Exit");
-        System.out.println("1) List");
-        System.out.println("2) Add");
-        System.out.println("3) Check out");
-        System.out.println("4) Check in");
 
+        manager.menu();
         Scanner input = new Scanner(System.in);
         System.out.print("Selection: ");
         int choice = input.nextInt();
@@ -83,7 +97,8 @@ public class LibraryManager {
                     manager.listPublication();
                 break;
                 case 2:
-                    System.out.print("Do you want to add Book or Video?\nEnter 1 for Book or 2 for video: ");
+                    System.out.println("Do you want to add Book or Video?\n1)Book \n2)Video");
+                    System.out.print("Selection : ");
                     int choice2 = input.nextInt();
                     input.nextLine();
                     switch(choice2){
@@ -95,19 +110,23 @@ public class LibraryManager {
                         break;
                     } 
                 break;
-                case 3: 
-                    // check out
+                case 3:
+                    manager.listPublication();
+                    manager.checkOutPublication();
                 break;
-                case 4: 
-                    // check in
+                case 4:
+                    manager.listPublication();
+                    manager.checkInPublication();
                 break;
                 default:
                     System.out.println("You enter wrong option.\n Please enter option 0-4");
 
             }
+            manager.menu();
             System.out.print("Selection: ");
             choice = input.nextInt();
             input.nextLine();
+            System.out.println("\n");
         } 
     }
 }

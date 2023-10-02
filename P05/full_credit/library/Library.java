@@ -47,6 +47,10 @@ import java.util.ArrayList;
                 + ": " + e.getMessage() + "\n");
         }
     }
+
+    public void checkIn(int publicationIndex){
+        publications.get(publicationIndex).checkIn();
+    }
     /**
      * Lists all publications in this library instance.
      *
