@@ -52,7 +52,7 @@ import java.util.ArrayList;
        try {
             publications.get(publicationIndex).checkIn();
         } catch(Exception e) {
-            System.err.println("\nUnable to check out publication #" + publicationIndex 
+            System.err.println("\nUnable to check in publication #" + publicationIndex 
                 + ": " + e.getMessage() + "\n");
         }
     }
