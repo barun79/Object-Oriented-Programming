@@ -3,6 +3,7 @@ package mdi;
 import library.Library;
 import library.Publication;
 import library.Video;
+import library.Video.InvalidRuntimeException;
 
 import java.util.Scanner;
 
@@ -25,10 +26,14 @@ public class LibraryManager {
         String author = input.nextLine();
         System.out.print("Enter the year: ");
         int year = input.nextInt();
-        input.nextLine(); // Consume newline
-
-        library.addPublication(new Publication(title, author, year));
-        System.out.println("Publication added.");  
+        input.nextLine();
+        try{
+            library.addPublication(new Publication(title, author, year));
+            System.out.println("Book added."); 
+        }catch(IllegalArgumentException e){
+            System.err.println(e.getMessage());
+        }
+         
     }
 
     public void addVideo(){
@@ -39,13 +44,16 @@ public class LibraryManager {
         String author = input.nextLine();
         System.out.print("Enter the year: ");
         int year = input.nextInt();
-        input.nextLine(); // Consume newline
+        input.nextLine();
         System.out.print("Enter the runtime: ");
         int runtime = input.nextInt();
         input.nextLine();
-        library.addPublication(new Video(title, author, year, runtime));
-        System.out.println("Publication added.");
-
+        try{
+            library.addPublication(new Video(title, author, year, runtime));
+            System.out.println("Video added.");
+        }catch(InvalidRuntimeException e){
+            System.err.println(e.getMessage());
+        }
     }
     
     public void checkOutPublication(){
