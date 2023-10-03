@@ -49,7 +49,12 @@ import java.util.ArrayList;
     }
 
     public void checkIn(int publicationIndex){
-        publications.get(publicationIndex).checkIn();
+       try {
+            publications.get(publicationIndex).checkIn();
+        } catch(Exception e) {
+            System.err.println("\nUnable to check out publication #" + publicationIndex 
+                + ": " + e.getMessage() + "\n");
+        }
     }
 
     public String getname(){
