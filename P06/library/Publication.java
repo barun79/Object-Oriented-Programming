@@ -1,4 +1,4 @@
-package library;
+// package library;
 
 import java.time.LocalDate;
 import java.io.FileReader;
@@ -40,10 +40,11 @@ public class Publication {
         this.title = br.readLine();
         this.author = br.readLine();
         this.copyright = Integer.parseInt(br.readLine());
-        if(br.readLine() == "checked in"){
+        String checkedStatus = br.readLine();
+        if("checked in".equals(checkedStatus)){
             this.loanedTo = null;
             this.dueDate = null;
-        }else{
+        }else if ("checked out".equals(checkedStatus)){
             this.loanedTo = br.readLine();
             this.dueDate = LocalDate.parse(br.readLine());
         }
