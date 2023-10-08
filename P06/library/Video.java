@@ -1,6 +1,12 @@
-package library;
+// package library;
+
 
 import java.time.Duration;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 /**
  * A library video that can be checked out by a patron.
@@ -61,6 +67,17 @@ public class Video extends Publication {
         if(runtime < 1) throw new InvalidRuntimeException(title, runtime);
         this.runtime = Duration.ofMinutes(runtime);
     }
+
+    public void save(BufferedWriter bw) throws IOException{
+        super.save(bw);
+        bw.write("" + runtime.toMinutes() + '\n');
+    }
+
+    public Video(BufferedReader br) throws IOException{
+        super(br);
+        long number = Long.parseLong(br.readLine());
+        this.runtime = Duration.ofMinutes(number);
+    }
     /**
      * Formats the fields of the publication in human-readable form.
      *
@@ -72,4 +89,26 @@ public class Video extends Publication {
         return toStringBuilder("Video", ", runtime " + runtime.toMinutes() + " minutes");
     }
     Duration runtime;
+
+    // public static void main(String args[]){
+    //     Video barun = new Video("Dance Nepal Dance", "Sushant khatri", 2015, 160);
+    //     barun.checkOut("Barun");
+    //     Video arpan = null;
+    //     try(BufferedWriter bw = new BufferedWriter(new FileWriter("test_video.txt"))) {
+    //         barun.save(bw);
+    //     } catch (IOException e) {
+    //         e.printStackTrace(System.err);
+    //     }
+
+    //     try(BufferedReader br = new BufferedReader(new FileReader("test_video.txt")))
+    //     {
+    //         arpan = new Video(br);
+    //     }
+    //     catch(IOException e){
+    //         e.printStackTrace(System.err);
+    //     }
+
+    //     System.out.println(arpan);
+
+    //  }
 }
