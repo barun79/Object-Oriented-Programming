@@ -4,12 +4,40 @@ import library.Library;
 import library.Publication;
 import library.Video;
 
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Console;
+
 
 public class LibraryManager {
     public LibraryManager(Library library) {
         this.library = library;
     }
+
+    public void openLibrary() throws IOException{
+        
+        String Filename = console.readLine("Filename: ");
+        try (BufferedReader br = new BufferedReader(new FileReader(Filename))) {
+            this.library = new Library(br);
+        } catch (IOException e) {
+            System.err.println("File " + Filename + " could not be open \n" + e);
+        }
+    }
+
+    public void saveLibrary() throws IOException {
+        
+        String Filename = console.readLine("Filename: ");
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(Filename))){
+            library.save(bw);
+        } catch(IOException e){
+            System.err.println("File " + Filename + " could not be open \n" + e);
+        }
+        
+    }
+
     public void listPublications() {
         System.out.println("=================\nLibrary Catalogue\n=================\n");
         System.out.println(library);
@@ -53,6 +81,8 @@ public class LibraryManager {
                     case  2 -> lm.addPublication();
                     case  3 -> lm.checkOutPublication();
                     case  4 -> lm.checkInPublication();
+                    case  5 -> lm.openLibrary();
+                    case  6 -> lm.saveLibrary();
                     default -> throw new RuntimeException("Invalid: " + selection);
                 }
             } catch (Exception e) {
@@ -64,7 +94,7 @@ public class LibraryManager {
     private static Console console = System.console();
     private static final String name = "The Library at Alexandria (Texas)";
     private static final String menu = "\n\n=========\nMain Menu\n=========\n\n" + name + "\n\n"
-        + "0) Exit\n1) List\n2) Add\n3) Check out\n4) Check in\n\n";
+        + "0) Exit\n1) List\n2) Add\n3) Check out\n4) Check in\n5) Open\n6) Save";
 
     private Library library;
     
