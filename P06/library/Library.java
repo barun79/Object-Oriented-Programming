@@ -1,10 +1,8 @@
-// package library;
+package library;
 
 import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -113,37 +111,5 @@ public class Library {
     }
     private String name;
     private ArrayList<Publication> publications;
-
-    // Test case
-    // public static void main(String args[]){
-    //     Library UTA = new Library("University of Texas at Arlington");
-    //     Library arpan = null;
-    //     Publication barun = new Publication("Growth", "Barun Singh", 2000);
-    //     Publication singh = new Publication("Length", "Barun Singh", 2000);
-    //     Publication king = new Publication("Height", "Barun Singh", 2000);
-    //     Video dance = new Video("Dance Nepal", "Sushant khatri", 2005, 120);
-    //     UTA.addPublication(barun);
-    //     UTA.addPublication(dance);
-    //     UTA.addPublication(singh);
-    //     UTA.addPublication(king);
-    //     barun.checkOut("Sandesh");
-    //     try(BufferedWriter writer = new BufferedWriter(new FileWriter("test_library.txt")))
-    //     {
-    //         UTA.save(writer);
-    //     }
-    //     catch(IOException e){
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     try(BufferedReader reader = new BufferedReader(new FileReader("test_library.txt")))
-    //     {
-    //         arpan = new Library(reader);
-    //     }
-    //     catch(IOException e){
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     System.out.println(arpan);
-    // }
 
 }

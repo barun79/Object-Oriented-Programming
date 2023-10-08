@@ -1,10 +1,8 @@
-// package library;
+package library;
 
 
 import java.time.Duration;
-import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -90,25 +88,4 @@ public class Video extends Publication {
     }
     Duration runtime;
 
-    // public static void main(String args[]){
-    //     Video barun = new Video("Dance Nepal Dance", "Sushant khatri", 2015, 160);
-    //     barun.checkOut("Barun");
-    //     Video arpan = null;
-    //     try(BufferedWriter bw = new BufferedWriter(new FileWriter("test_video.txt"))) {
-    //         barun.save(bw);
-    //     } catch (IOException e) {
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     try(BufferedReader br = new BufferedReader(new FileReader("test_video.txt")))
-    //     {
-    //         arpan = new Video(br);
-    //     }
-    //     catch(IOException e){
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     System.out.println(arpan);
-
-    //  }
 }

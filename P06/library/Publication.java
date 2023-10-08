@@ -1,9 +1,7 @@
-// package library;
+package library;
 
 import java.time.LocalDate;
-import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
@@ -108,27 +106,4 @@ public class Publication {
     private String loanedTo;
     private LocalDate dueDate;
 
-    // Test case
-    // public static void main(String args[]){
-    //     Publication barun = new Publication("Growth", "Barun Singh", 2000);
-    //     Publication arpan = null;
-    //     barun.checkOut("Sandesh");
-    //     try(BufferedWriter writer = new BufferedWriter(new FileWriter("test_publication.txt")))
-    //     {
-    //         barun.save(writer);
-    //     }
-    //     catch(IOException e){
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     try(BufferedReader reader = new BufferedReader(new FileReader("test_publication.txt")))
-    //     {
-    //         arpan = new Publication(reader);
-    //     }
-    //     catch(IOException e){
-    //         e.printStackTrace(System.err);
-    //     }
-
-    //     System.out.println(arpan);
-    // }
 }
