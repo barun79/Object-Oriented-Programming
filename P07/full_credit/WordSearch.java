@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -114,5 +116,5 @@ public class WordSearch {
     public final boolean verbose;
 
     private List<Puzzle> puzzles = new ArrayList<>();;
-    private List<Solution> solutions = new ArrayList<>();
+    private SortedSet<Solution> solutions = new TreeSet<>();
 }
