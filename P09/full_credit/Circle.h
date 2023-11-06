@@ -1,5 +1,9 @@
+#ifndef CIRCLE_H
+#define CIRCLE_H
+
 #include <iostream>
 #include <stdexcept>
+#include <cmath>
 
 class Circle{
     public:
@@ -9,3 +13,5 @@ class Circle{
     private:
         double _radius;  
 };
+
+#endif
