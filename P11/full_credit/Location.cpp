@@ -1,5 +1,5 @@
-#include "Location.h"
 #include <iostream>
+#include "Location.h"
 
 Location::Location(std::string filename, int line){
 
