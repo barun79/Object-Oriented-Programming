@@ -11,7 +11,6 @@ class Location{
         int _line;
 
     public:
-        int compare(Location& location);
 
         Location(string filename, int line);
         bool operator== (const Location& location) const;
