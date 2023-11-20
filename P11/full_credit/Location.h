@@ -16,10 +16,10 @@ class Location{
         Location(string filename, int line);
         bool operator== (const Location& location) const;
         bool operator!=(const Location& location) const;
-        bool operator <(const & location) const;
-        bool operator > ( const Location& location) const;
-        bool operator <=(const Location& location) const;
-        bool operator >=(const Location& location) const;
+        bool operator< (const Location& location) const;
+        bool operator> ( const Location& location) const;
+        bool operator<= (const Location& location) const;
+        bool operator>= (const Location& location) const;
         friend ostream& operator<< (ostream& ost, const Location& location);
 
 };
