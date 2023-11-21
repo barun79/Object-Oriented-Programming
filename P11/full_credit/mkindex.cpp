@@ -2,6 +2,21 @@
 #include <fstream>
 #include <sstream>
 #include "Index.h"
+#include <algorithm>
+
+std::string clean_word(const std::string& word) {
+    std::string cleaned_word = word;
+
+    cleaned_word.erase(std::remove_if(cleaned_word.begin(), cleaned_word.end(),
+                        [](char c) { return ispunct(c) || c == ',' || c == '"'; }),
+                        cleaned_word.end());
+
+    std::transform(cleaned_word.begin(), cleaned_word.end(), cleaned_word.begin(), [](unsigned char c) { return std::tolower(c); });
+
+    return cleaned_word;
+}
+
+
 
 int main(int argc, char* argv[]){
 
@@ -36,5 +51,3 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
-
-
